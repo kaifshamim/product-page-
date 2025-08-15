@@ -1,88 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Its Worth It - Products</title>
+    <title>its worth it - Links</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #0d0d0d;
+            color: white;
             text-align: center;
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #222;
-            color: white;
+        .container {
+            max-width: 500px;
+            margin: auto;
             padding: 20px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+            border: 3px solid #ff00ff;
+        }
+        h1 {
+            margin-top: 10px;
             font-size: 24px;
         }
-        .search-box {
-            margin: 20px auto;
-            display: flex;
-            justify-content: center;
-        }
-        .search-box input {
+        .search-bar {
+            margin-top: 20px;
+            width: 100%;
             padding: 12px;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            width: 300px;
-            border-radius: 5px 0 0 5px;
-        }
-        .search-box button {
-            padding: 12px 20px;
-            font-size: 18px;
+            border-radius: 8px;
             border: none;
-            background-color: #ff6600;
+            font-size: 16px;
+        }
+        .link-button {
+            display: block;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
             color: white;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
-        .product-list {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .product {
-            background: white;
             padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .product a {
+            margin: 15px 0;
+            border-radius: 30px;
             text-decoration: none;
-            color: #ff6600;
-            font-size: 18px;
             font-weight: bold;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .link-button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
     </style>
-</head>
-<body>
-    <header>Its Worth It - Product Links</header>
-
-    <div class="search-box">
-        <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
-        <button onclick="searchProducts()">🔍 Search</button>
-    </div>
-
-    <div class="product-list" id="productList">
-        <div class="product">
-            <a href="https://warriorplus.com/o2/a/gpj2xc8/0" target="_blank">Get Access to PromptIQ</a>
-        </div>
-    </div>
-
     <script>
-        function searchProducts() {
+        function searchLinks() {
             let input = document.getElementById('search').value.toLowerCase();
-            let products = document.getElementsByClassName('product');
-            for (let i = 0; i < products.length; i++) {
-                let text = products[i].innerText.toLowerCase();
-                products[i].style.display = text.includes(input) ? "" : "none";
+            let links = document.getElementsByClassName('link-button');
+            for (let i = 0; i < links.length; i++) {
+                let text = links[i].textContent.toLowerCase();
+                links[i].style.display = text.includes(input) ? "block" : "none";
             }
         }
     </script>
+</head>
+<body>
+    <div class="container">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+        <h1>its worth it</h1>
+        <input type="text" id="search" class="search-bar" onkeyup="searchLinks()" placeholder="Search products...">
+
+        <!-- 🔥 Add your links here -->
+        <a href="https://warriorplus.com/o2/a/gpj2xc8/0" class="link-button" target="_blank">🚀 Get Access to PromptIQ</a>
+        <a href="https://example.com/product2" class="link-button" target="_blank">🔥 Another Product</a>
+        <a href="https://example.com/product3" class="link-button" target="_blank">💡 Something Cool</a>
+    </div>
 </body>
 </html>
